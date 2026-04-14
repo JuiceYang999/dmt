@@ -1,0 +1,20 @@
+# Cockpit offline KB (placeholder)
+
+[pressure_levels]
+L0: no-pressure -> deep sleep
+L1: light pressure -> lightweight wakeup, low-power VAD
+L2: medium pressure -> normal ASR + RAG answering
+L3: high pressure -> emergency mode, interrupt current task
+
+[seat_events]
+- entry_detected: when pressure rises above threshold and stays for N ms
+- exit_detected: when pressure drops below threshold and stays for N ms
+
+[latency_targets]
+- ASR endpointing: <= 0.9s
+- voice->llm->tts loop: <= 4s
+
+[skills]
+- NAVIGATE: "导航到..."
+- HVAC_SET: "空调..."
+- CALL_SOS: "紧急呼叫" / L3 pressure triggers
